@@ -1,0 +1,22 @@
+{
+    "name": "admin/hyperf-rebuild",
+    "authors": [
+        {
+            "name": "felton",
+            "email": "wudadongfen@126.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^5.1",
+        "symfony/finder": "^5.1"
+    },
+    "require-dev": {
+        "swoole/ide-helper": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Rebuild\\": "src/"
+        }
+    }
+}
