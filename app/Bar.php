@@ -11,11 +11,11 @@ namespace App;
 
 class Bar
 {
-    public function bar() {
-        echo '2';
+
+    public function bar()
+    {
         $foo = new Foo();
         echo $foo->foo();
     }
-
 
 }

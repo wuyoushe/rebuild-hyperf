@@ -5,9 +5,15 @@
  * Date: 2020/9/28
  * Time: 15:04
  */
-require '../vendor/autoload.php';
 
-echo '1';
-$bar = new Bar();
-$bar->bar();
+use Symfony\Component\Console\Application;
+use Rebuild\Command\StartCommand;
+
+require 'vendor/autoload.php';
+
+//! defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
+
+$application = new Application();
+$application->add(new StartCommand());
+$application->run();
 

@@ -8,10 +8,9 @@
 
 namespace App;
 
-
 class Foo
 {
-    public function foo() {
+    public function foo(){
         return 1;
     }
 
