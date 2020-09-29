@@ -37,6 +37,7 @@ class StartCommand extends Command
         });
 
         $http->start();
+        var_dump(222);
         return 1;
     }
 
