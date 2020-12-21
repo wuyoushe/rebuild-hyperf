@@ -8,6 +8,7 @@
 declare(strict_types=1);
 namespace Rebuild\Server;
 
+use Rebuild\HttpServer\Router\DispatcherFactory;
 use Swoole\Coroutine\Server as SwooleCoServer;
 use Swoole\Server as SwooleServer;
 use Swoole\Http\Server as SwooelHttpServer;
@@ -38,18 +39,22 @@ class Server implements ServerInterface
 
     public function getServer()
     {
-        // TODO: Implement getServer() method.
         return $this->server;
     }
 
     protected function registerSwooleEvents(array $callbacks)
     {
         foreach ($callbacks as $swolleEvent => $callback) {
-//            [$class, $method] = $callback;
             list($class, $method) = $callback;
-            $instance = new $class();
+
+            if($class === \Rebuild\HttpServer\Server::class) {
+                $instance = new $class(new DispatcherFactory());
+            }else {
+                $instance = new $class();
+            }
+
+
             $this->server->on($swolleEvent, [$instance, $method]);
         }
     }
-
 }

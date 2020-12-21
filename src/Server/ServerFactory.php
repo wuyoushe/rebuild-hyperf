@@ -21,7 +21,7 @@ class ServerFactory
         $this->getServer()->init($this->serverConfig);
     }
 
-    public function getServer():Server{
+    public function getServer(): Server{
         if(!isset($this->server)) {
             $this->server = new Server();
         }
